@@ -1,9 +1,10 @@
 pragma solidity ^0.4.10;
 import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
-import 'zeppelin-solidity/contracts/ownership/Destructible.sol';
+import 'zeppelin-solidity/contracts/lifecycle/Destructible.sol';
 
 contract Splitter is Ownable, Destructible {
 
+    address owner;
     address[] addressList;
     mapping(address => uint) splitBalances;
     uint remainderBalance;
@@ -11,12 +12,27 @@ contract Splitter is Ownable, Destructible {
     event LogSplitTransfer(address receiver, uint amount);
     event LogStoredBalanceUpdate(address user, uint amount);
 
+    function Splitter() {
+        owner = msg.sender;
+    }
+
+    function addAddresses(address[] addresses)
+        public
+        returns(bool success)
+    {
+        for(uint i = 0; i<addresses.length; i++){
+            addressList.push(addresses[i]);
+            splitBalances[addresses[i]] = 0;
+        }
+        return true;
+    }
+
     function splitToStoredAddresses()
         payable
         public
         returns(bool success)
     {
-        if (msg.value <= 0) throw;
+        if (msg.value <= 0) revert();
         uint remainder = msg.value % addressList.length;
         remainderBalance += remainder;
 
@@ -30,6 +46,7 @@ contract Splitter is Ownable, Destructible {
             splitBalances[addressList[i]] = total;
             LogStoredBalanceUpdate(addressList[i], total);
         }
+        return true;
     }
 
     function claimSplitFundsBySender()
@@ -40,25 +57,24 @@ contract Splitter is Ownable, Destructible {
         uint splitAmount = splitBalances[msg.sender];
         if(splitAmount>0){
             splitBalances[ msg.sender] = 0;
-            transferFunds(msg.sender.transfer, splitAmount);
+            transferFunds(msg.sender, splitAmount);
             LogStoredBalanceUpdate(msg.sender, 0);
-            LogSplitTransfer(msg.sender, amountToTransfer);
+            LogSplitTransfer(msg.sender, splitAmount);
         }
 
         return true;
     }
 
-    function transferFunds(_destination, _amount)
-        payable
+    function transferFunds(address _destination, uint _amount)
         private
-        returns(bool success)
     {
-        return _destination.transfer(_amount);
+        _destination.transfer(_amount);
     }
 
     function claimStoredSplitFunds()
         payable
         public
+        onlyOwner
         returns(bool success)
     {
         for(uint i = 0; i<addressList.length; i++){
@@ -77,6 +93,7 @@ contract Splitter is Ownable, Destructible {
     function splitToStoredAddressesAndWithdraw()
         payable
         public
+        onlyOwner
         returns(bool success)
     {
         if (splitToStoredAddresses()) {
@@ -92,8 +109,7 @@ contract Splitter is Ownable, Destructible {
     public
     returns(bool success)
     {
-        if (msg.value <= 0) throw;
-        balance += msg.value;
+        if (msg.value <= 0) revert();
         uint remainder = msg.value % targetAddresses.length;
         uint splitAmount = msg.value / targetAddresses.length;
         claimSplitFundsByArray(targetAddresses, splitAmount, remainder);
@@ -106,9 +122,10 @@ contract Splitter is Ownable, Destructible {
         uint remainder
     )
     private
-    payable
     returns(bool success)
     {
+        // I realize transferring in a loop is a security issue
+        // Unsure how to transfer to all targets otherwise
         for(uint i = 0; i<recipientAddresses.length; i++){
             transferFunds(recipientAddresses[i], splitAmount);
         }
@@ -146,10 +163,22 @@ contract Splitter is Ownable, Destructible {
         return addressList;
     }
 
-    function endContract()
-    public
-    returns(bool success)
+    function getSplitBalance(address splitAddress)
+        public
+        constant
+        returns(uint)
     {
-        return destroy();
+        return splitBalances[splitAddress];
+    }
+// destroy already has onlyOwner modifier.  Modifying wrapping function as a safety measure
+    function endContract()
+        public
+        onlyOwner
+    {
+        destroy();
+    }
+
+    function() {
+        throw;
     }
 }

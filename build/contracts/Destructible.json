@@ -1,0 +1,61 @@
+{
+  "contract_name": "Destructible",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "destroy",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_recipient",
+          "type": "address"
+        }
+      ],
+      "name": "destroyAndSend",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": true,
+      "type": "constructor"
+    }
+  ],
+  "unlinked_binary": "0x60606040525b5b60008054600160a060020a03191633600160a060020a03161790555b5b5b6101a8806100336000396000f300606060405263ffffffff60e060020a60003504166383197ef081146100455780638da5cb5b1461005a578063f2fde38b14610089578063f5074f41146100aa575b600080fd5b341561005057600080fd5b6100586100cb565b005b341561006557600080fd5b61006d6100f7565b604051600160a060020a03909116815260200160405180910390f35b341561009457600080fd5b610058600160a060020a0360043516610106565b005b34156100b557600080fd5b610058600160a060020a0360043516610151565b005b60005433600160a060020a039081169116146100e657600080fd5b600054600160a060020a0316ff5b5b565b600054600160a060020a031681565b60005433600160a060020a0390811691161461012157600080fd5b600160a060020a0381161561014c5760008054600160a060020a031916600160a060020a0383161790555b5b5b50565b60005433600160a060020a0390811691161461016c57600080fd5b80600160a060020a0316ff5b5b505600a165627a7a7230582055afef814a0ccb34c2353d616be7d9d007e764ae3871a9bbf671db2e426873e50029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1503773156402
+}
