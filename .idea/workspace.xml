@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00483862-eddb-487e-a3e4-ac6a9cacf522" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contracts/Remittance.sol" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/remittance.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/simpleSplitter.js" afterPath="$PROJECT_DIR$/test/simpleSplitter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/splitter.js" afterPath="$PROJECT_DIR$/test/splitter.js" />
     </list>
     <ignored path="truffle_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +35,8 @@
             <file leaf-file-name="splitter.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/test/splitter.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="607">
-                    <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+                  <state relative-caret-position="322">
+                    <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
                     <folding />
                   </state>
                 </provider>
@@ -645,8 +641,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/splitter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        <state relative-caret-position="322">
+          <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
           <folding />
         </state>
       </provider>
