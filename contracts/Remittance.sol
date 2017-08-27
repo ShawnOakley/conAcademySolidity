@@ -44,6 +44,7 @@ contract Remittance is Ownable, Destructible {
     }
 
     function () payable {
+        require (sha3(msg.sender) == _password_hash_a);
         uint commissionAmount = msg.value * 0.15;
         if (owner.transfer(commissionAmount)) {
             LogCommission(commissionAmount);
