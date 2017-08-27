@@ -17,7 +17,11 @@ contract("Remittance", function(accounts) {
         function(instance) {
             remittanceContract = instance;
             return web3.eth.sendTransaction(
-                {from: recipientAddress, value: amount, to: remittanceContract.address}
+                {
+                    from: recipientAddress,
+                    value: amount,
+                    to: remittanceContract.address
+                }
             );
         })
     });

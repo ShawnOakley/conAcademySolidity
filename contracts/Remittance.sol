@@ -23,13 +23,12 @@ contract Remittance is Ownable, Destructible {
     }
 
     function withdraw(
-        bytes32 _password_hash_a,
         bytes32 _password_hash_b
     )
     public
     returns (bool) {
-        require(sha3(msg.sender) == _password_hash_a);
-        require(sha3(participant_hash_b) == _password_hash_b);
+        require(sha3(msg.sender) == participant_hash_a);
+        require(sha3(_password_hash_b) == participant_hash_b);
         require(block.number <= deadline);
         msg.sender.transfer(this.balance);
         if (msg.sender.transfer(this.balance)) {
