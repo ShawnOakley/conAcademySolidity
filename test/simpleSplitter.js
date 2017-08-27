@@ -43,11 +43,11 @@ contract('Simple Splitter', function(accounts) {
             var expected_addition = sent_val/2;
             assert.equal(
                 updated_balances[0].toString(10),starting_balances[0].add(expected_addition).toString(),
-                "No split to first target"
+                "No split to first recipient"
             );
             assert.equal(
                 updated_balances[1].toString(10),starting_balances[1].add(expected_addition).toString(),
-                "No split to second target"
+                "No split to second recipient"
             );
             done();
         });
@@ -66,16 +66,15 @@ contract('Simple Splitter', function(accounts) {
 
         Promise.all(recipients.map((account) => simpleSplitter.splitBalances.call(account)))
         .then((withdrawal_balances) => {
-            var expected_addition = sent_val/2;
             assert.equal(
                 withdrawal_balances[0].toString(10),
-                expected_addition.toString(),
-                "No split to first target"
+                (sent_val/2).toString(),
+                "No split to first recipient"
             );
             assert.equal(
                 withdrawal_balances[1].toString(10),
-                expected_addition.toString(),
-                "No split to second target"
+                (zzzzz/2).toString(),
+                "No split to second recipient"
             );
             Promise.all(recipients.map((account) => simpleSplitter.withdrawFunds({from: account})))
             .then(() => {

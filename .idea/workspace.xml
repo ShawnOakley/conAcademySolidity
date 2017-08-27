@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00483862-eddb-487e-a3e4-ac6a9cacf522" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contracts/SimpleSplitter.sol" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/migrations/3_deploy_simple_splitter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/simpleSplitter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/splitter.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/TestMetacoin.sol" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/metacoin.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contracts/Remittance.sol" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/remittance.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/contracts/ConvertLib.json" afterPath="$PROJECT_DIR$/build/contracts/ConvertLib.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/contracts/MetaCoin.json" afterPath="$PROJECT_DIR$/build/contracts/MetaCoin.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/contracts/Migrations.json" afterPath="$PROJECT_DIR$/build/contracts/Migrations.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contracts/Splitter.sol" afterPath="$PROJECT_DIR$/contracts/Splitter.sol" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/simpleSplitter.js" afterPath="$PROJECT_DIR$/test/simpleSplitter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/splitter.js" afterPath="$PROJECT_DIR$/test/splitter.js" />
     </list>
     <ignored path="truffle_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,21 +26,21 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="Splitter.sol" pinned="false" current-in-tab="true">
+            <file leaf-file-name="Splitter.sol" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/contracts/Splitter.sol">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="2730">
-                    <caret line="182" column="5" selection-start-line="182" selection-start-column="5" selection-end-line="182" selection-end-column="5" />
+                  <state relative-caret-position="165">
+                    <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="60" />
                     <folding />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="splitter.js" pinned="false" current-in-tab="false">
+            <file leaf-file-name="splitter.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/test/splitter.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="90">
-                    <caret line="6" column="44" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="44" />
+                  <state relative-caret-position="607">
+                    <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
                     <folding />
                   </state>
                 </provider>
@@ -86,18 +80,28 @@
       <file leaf-file-name="SimpleSplitter.sol" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/contracts/SimpleSplitter.sol">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="26" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="26" />
+            <state relative-caret-position="567">
+              <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simpleSplitter.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/simpleSplitter.js">
+      <file leaf-file-name="Remittance.sol" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contracts/Remittance.sol">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+            <state relative-caret-position="262">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="remittance.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/remittance.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -134,16 +138,17 @@
         <option value="$PROJECT_DIR$/contracts/SplitterSimple.sol" />
         <option value="$PROJECT_DIR$/build/contracts/MetaCoin.json" />
         <option value="$PROJECT_DIR$/migrations/3_deploy_splitter.js" />
-        <option value="$PROJECT_DIR$/test/splitter.js" />
         <option value="$PROJECT_DIR$/migrations/4_deploy_simple_splitter.js" />
         <option value="$PROJECT_DIR$/contracts/Splitter.sol" />
         <option value="$PROJECT_DIR$/contracts/SimpleSplitter.sol" />
         <option value="$PROJECT_DIR$/test/simpleSplitter.js" />
+        <option value="$PROJECT_DIR$/contracts/Remittance.sol" />
+        <option value="$PROJECT_DIR$/test/splitter.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1142" />
+    <option name="x" value="1898" />
     <option name="y" value="27" />
     <option name="width" value="1142" />
     <option name="height" value="873" />
@@ -381,12 +386,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1142" y="27" width="1142" height="873" extended-state="0" />
+    <frame x="1898" y="27" width="1142" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20963426" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20963426" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -590,22 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/splitter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="44" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contracts/Splitter.sol">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2730">
-          <caret line="182" column="5" selection-start-line="182" selection-start-column="5" selection-end-line="182" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/contracts/Splitter.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2850">
@@ -614,18 +603,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contracts/SimpleSplitter.sol">
+    <entry file="file://$PROJECT_DIR$/test/simpleSplitter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="26" />
+        <state relative-caret-position="640">
+          <caret line="75" column="22" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/simpleSplitter.js">
+    <entry file="file://$PROJECT_DIR$/contracts/SimpleSplitter.sol">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+        <state relative-caret-position="567">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/Splitter.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/Remittance.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/remittance.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/splitter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
           <folding />
         </state>
       </provider>
