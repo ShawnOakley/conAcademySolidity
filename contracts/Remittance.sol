@@ -90,7 +90,7 @@ contract Remittance is Destructible {
 
     function claimCommissions() returns(bool){
         require(msg.sender == owner);
-    
+
         uint amount = payments;
         delete payments;
         owner.transfer(amount);
