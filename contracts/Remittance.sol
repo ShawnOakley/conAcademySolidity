@@ -24,6 +24,7 @@ contract Remittance is Destructible {
         require(sha3(msg.sender) == participant_hash_a);
         require(sha3(_password_hash_b) == participant_hash_b);
         require(block.number <= deadline);
+
         msg.sender.transfer(this.balance);
         if (msg.sender.transfer(this.balance)) {
             LogWithdrawal(msg.sender, this.balance);
@@ -34,6 +35,7 @@ contract Remittance is Destructible {
     public {
         require(block.number > deadline);
         require(msg.sender == owner);
+
         super.destroy();
         return (true);
     }
@@ -73,6 +75,7 @@ contract Remittance is Destructible {
 
     function returnRemittance(bytes32 password) returns (bool){
         Remittance storage currentRemittance = remittanceCollection[password];
+
         require(currentRemittance.deadline <= block.number);
         require(msg.sender == currentRemittance.sender);
         require(currentRemittance.amount > 0);
@@ -87,6 +90,7 @@ contract Remittance is Destructible {
 
     function claimCommissions() returns(bool){
         require(msg.sender == owner);
+    
         uint amount = payments;
         delete payments;
         owner.transfer(amount);
