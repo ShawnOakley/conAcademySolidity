@@ -1,26 +1,20 @@
 pragma solidity ^0.4.10;
-import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
 import 'zeppelin-solidity/contracts/lifecycle/Destructible.sol';
 
-contract Remittance is Ownable, Destructible {
+contract Remittance is Destructible {
     address owner;
-    bytes32 participant_hash_a;
-    bytes32 participant_hash_b;
-    uint deadline;
+    mapping (bytes32 => Remittance) remittanceCollection;
+    uint commission;
 
-    event LogWithdrawal(address sender, uint amount);
-    event LogCommission(address sender, uint amount);
+    event LogWithdrawal(address sender, uint amount, bytes32 password, uint blockNumber);
+    event LogCommissionWithdrawal(uint amount);
+    event LogRemittanceCreation(address sender, uint amount, uint deadline, bytes32 password);
+    event LogRemittanceExpiration(address sender, bytes32 password, uint blockNumber);
 
-    function Remittance(
-        address _participant_address,
-        bytes32 _participant_hash,
-        uint _deadline
-    ) {
+    function Remittance() {
         owner = msg.sender;
-        participant_hash_a = sha3(_participant_address);
-        participant_hash_b = sha3(_participant_hash);
-        deadline = block.number + _deadline;
     }
+
 
     function withdraw(
         bytes32 _password_hash_b
@@ -39,15 +33,64 @@ contract Remittance is Ownable, Destructible {
     function destroy()
     public {
         require(block.number > deadline);
+        require(msg.sender == owner);
         super.destroy();
+        return (true);
     }
 
-    function () payable {
-        require (sha3(msg.sender) == _password_hash_a);
+    function payRemittance(bytes32 firstCode, bytes32 secondCode) returns(bool){
+        bytes32 password = keccak256(firstCode, secondCode);
+        Remittance storage currentRemittance = remittanceCollection[password];
+
+        require(currentRemittance.deadline > block.number);
+
+        uint amount = currentRemittance.amount;
+        delete currentRemittance.amount;
+
+        msg.sender.transfer(amount);
+
+        LogWithdrawal(msg.sender, amount, password, block.number);
+        return (true);
+    }
+
+    function createRemittance(bytes32 newPassword, uint deadlineOffset) {
         uint commissionAmount = msg.value * 0.15;
-        if (owner.transfer(commissionAmount)) {
-            LogCommission(commissionAmount);
-        }
+        uint paymentAmount = msg.value - commissionAmount;
+        uint newDeadline = block.number + deadlineOffset;
+        remittanceCollection[newPassword] = Remittance({
+            sender: msg.sender,
+            amount: paymentAmount,
+            deadline: newDeadline
+        });
+        LogRemittanceCreation(
+            msg.sender,
+            paymentAmount,
+            deadlineOffset,
+            newPassword
+        );
+        return (true);
     }
 
+    function returnRemittance(bytes32 password) returns (bool){
+        Remittance storage currentRemittance = remittanceCollection[password];
+        require(currentRemittance.deadline <= block.number);
+        require(msg.sender == currentRemittance.sender);
+        require(currentRemittance.amount > 0);
+
+        uint amount = currentRemittance.amount;
+        delete currentRemittance.amount;
+
+        currentRemittance.sender.transfer(amount);
+        LogRemittanceExpiration(currentRemittance.sender, password, block.number);
+        return (true);
+    }
+
+    function claimCommissions() returns(bool){
+        require(msg.sender == owner);
+        uint amount = payments;
+        delete payments;
+        owner.transfer(amount);
+        LogCommissionWithdrawal(amount);
+        return (true);
+    }
 }
